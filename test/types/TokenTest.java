@@ -12,6 +12,7 @@ public class TokenTest {
   private Token operatorToken;
   private Token leftParenthesisToken;
   private Token rightParenthesisToken;
+
   @Before
   public void setUp() {
     numberToken = new Token("1", TokenType.Number);
@@ -46,11 +47,12 @@ public class TokenTest {
     }
 
   }
+
   @Test
-  public void testAppendPeriod()  throws Exception{
+  public void testAppendPeriod() throws Exception {
     try {
       numberToken.append('.');
-      assertEquals("1.", numberToken.getToken();
+      assertEquals("1.", numberToken.getToken());
     } catch (IllegalArgumentException e) {
       throw new Exception("this should not happen");
     }
@@ -59,6 +61,16 @@ public class TokenTest {
     } catch (IllegalArgumentException e) {
       assertEquals("Number already contains a period", e.getMessage());
     }
+  }
+
+  @Test
+  public void testDelete() {
+    numberToken.append('1');
+    assertEquals("11", numberToken.getToken());
+    numberToken.delete();
+    assertEquals("1", numberToken.getToken());
+    numberToken.delete();
+    assertEquals("", numberToken.getToken());
   }
 
   @Test

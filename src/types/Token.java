@@ -40,7 +40,7 @@ public class Token {
    * If the character is not a digit or a period then an exception is thrown.
    * If the character is a digit then it is appended to the token.
    * If the character is a period and the token does not contain a period then it is
-   *      appended to the token.
+   * appended to the token.
    * If the character is a period and the token contains a period then an exception is thrown.
    *
    * @param c the character to append
@@ -51,7 +51,7 @@ public class Token {
       throw new IllegalArgumentException("Token is not a number");
     }
 
-    if (! Character.isDigit(c) && c != '.') {
+    if (!Character.isDigit(c) && c != '.') {
       throw new IllegalArgumentException("Character is not a digit or period");
     }
 
@@ -70,6 +70,21 @@ public class Token {
     if (c == '.') {
       token += c;
     }
+  }
+
+  /**
+   * Deletes the last character from the token.
+   * If the token is not a number then an exception is thrown.
+   * If the token is empty then nothing happens.
+   */
+  public void delete() {
+    if (type != TokenType.Number) {
+      throw new IllegalArgumentException("Token is not a number");
+    }
+    if (!token.isEmpty()) {
+      token = token.substring(0, token.length() - 1);
+    }
+
   }
 
   @Override
