@@ -122,7 +122,13 @@ public class FormulaBuilder {
    * @return a list of tokens that represent the formula.
    */
   public List<Token> getFormula() {
-    return tokens;
+    // return a copy of the tokens
+    List<Token> result = new ArrayList<Token>();
+    for (Token token : tokens) {
+      Token newToken = new Token(token.getToken(), token.getType());
+      result.add(newToken);
+    }
+    return result;
   }
 
 

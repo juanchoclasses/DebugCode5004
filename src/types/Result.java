@@ -48,4 +48,15 @@ public class Result {
   public String getError() {
     return error;
   }
+
+  /**
+   * Returns a string representation of the result.
+   * This is a string of the form:
+   * "value, formula, error"
+   *
+   * @return a string representation of the result.
+   */
+  public String toString() {
+    return "[" + result + ", " + formula + ", {" + error + "}]";
+  }
 }

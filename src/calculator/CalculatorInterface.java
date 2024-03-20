@@ -13,14 +13,14 @@ public interface CalculatorInterface {
    * @param c the token to add.
    * @return the result of adding the token.
    */
-  public Result addToken(char c);
+  public void addToken(char c);
 
   /**
    * This method is used to delete a token from the calculator.
    *
    * @return the result of deleting the token.
    */
-  public Result deleteToken();
+  public void deleteToken();
 
   /**
    * This method is used to clear the calculator.

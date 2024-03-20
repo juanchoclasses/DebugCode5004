@@ -26,6 +26,19 @@ public class Token {
     return token;
   }
 
+  /**
+   * Returns the value of the token as a double.
+   * If the token is not a number then an exception is thrown.
+   *
+   * @return the value of the token as a double.
+   */
+  public double getValue() {
+    if (type != TokenType.Number) {
+      throw new IllegalArgumentException("Token is not a number");
+    }
+    return Double.parseDouble(token);
+  }
+
   public TokenType getType() {
     return type;
   }
